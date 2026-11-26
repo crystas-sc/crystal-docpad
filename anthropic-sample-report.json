@@ -1,0 +1,657 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": { "level": 1 },
+      "content": [
+        { "type": "text", "text": "Anthropic & Claude Platform Briefing: Safety, Scaling & Enterprise Telemetry" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Illustrative sample report profiling Anthropic's Constitutional AI research, Claude model family capabilities, inference scaling, and enterprise adoption across 10 structured tables and 10 embedded charts."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "1. Claude Model Family Capabilities" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Model" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Reasoning Score" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Coding Score" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Haiku" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "78.4" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "75.9" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Sonnet" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "88.7" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "92.0" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Opus" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "93.5" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "94.2" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-1",
+        "chartType": "bar",
+        "title": "1. Model Benchmark Comparison (%)",
+        "subtitle": "Reasoning vs. Coding evaluation scores across tiers",
+        "xKey": "model",
+        "yKeys": ["Reasoning", "Coding"],
+        "data": [
+          { "model": "Haiku", "Reasoning": 78.4, "Coding": 75.9 },
+          { "model": "Sonnet", "Reasoning": 88.7, "Coding": 92.0 },
+          { "model": "Opus", "Reasoning": 93.5, "Coding": 94.2 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "2. Context Window & Long-Context Recall" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Context (K Tokens)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Needle Recall (%)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Multi-Doc QA (%)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "16K" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "99.8" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "95.2" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "64K" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "99.4" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "93.6" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "128K" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "98.9" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "91.8" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "200K" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "98.2" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "90.4" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-2",
+        "chartType": "line",
+        "title": "2. Long-Context Accuracy vs. Window Size (%)",
+        "subtitle": "Recall stability from 16K to 200K tokens",
+        "xKey": "window",
+        "yKeys": ["NeedleRecall", "MultiDocQA"],
+        "data": [
+          { "window": "16K", "NeedleRecall": 99.8, "MultiDocQA": 95.2 },
+          { "window": "64K", "NeedleRecall": 99.4, "MultiDocQA": 93.6 },
+          { "window": "128K", "NeedleRecall": 98.9, "MultiDocQA": 91.8 },
+          { "window": "200K", "NeedleRecall": 98.2, "MultiDocQA": 90.4 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "3. Constitutional AI Safety & Refusal Precision" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Release" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Harmful Refusal (%)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Benign Compliance (%)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Claude 2.0" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "91.0" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "84.5" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Claude 3.0" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "95.8" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "93.2" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Claude 3.5" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "97.6" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "96.4" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Claude Next" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "98.5" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "97.8" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-3",
+        "chartType": "area",
+        "title": "3. Safety Alignment & Over-Refusal Reduction (%)",
+        "subtitle": "Harmful refusal vs. benign prompt compliance",
+        "xKey": "release",
+        "yKeys": ["HarmfulRefusal", "BenignCompliance"],
+        "data": [
+          { "release": "Claude 2.0", "HarmfulRefusal": 91.0, "BenignCompliance": 84.5 },
+          { "release": "Claude 3.0", "HarmfulRefusal": 95.8, "BenignCompliance": 93.2 },
+          { "release": "Claude 3.5", "HarmfulRefusal": 97.6, "BenignCompliance": 96.4 },
+          { "release": "Claude Next", "HarmfulRefusal": 98.5, "BenignCompliance": 97.8 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "4. Enterprise API Request Volume" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Quarter" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Direct API (B Tokens)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Cloud Partners (B Tokens)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Q1" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "180" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "240" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Q2" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "265" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "350" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Q3" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "390" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "510" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Q4" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "540" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "720" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-4",
+        "chartType": "bar",
+        "title": "4. Quarterly Token Volume by Channel (Billions)",
+        "subtitle": "Direct Anthropic API vs. Bedrock & Vertex AI",
+        "xKey": "quarter",
+        "yKeys": ["DirectAPI", "CloudPartners"],
+        "data": [
+          { "quarter": "Q1", "DirectAPI": 180, "CloudPartners": 240 },
+          { "quarter": "Q2", "DirectAPI": 265, "CloudPartners": 350 },
+          { "quarter": "Q3", "DirectAPI": 390, "CloudPartners": 510 },
+          { "quarter": "Q4", "DirectAPI": 540, "CloudPartners": 720 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "5. Inference Throughput (Tokens/sec)" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Model" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Standard (tok/s)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Cached Prompt (tok/s)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Haiku" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "148" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "210" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Sonnet" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "84" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "126" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Opus" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "42" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "68" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-5",
+        "chartType": "bar",
+        "title": "5. Output Speed & Prompt Caching Gains (tok/s)",
+        "subtitle": "Standard vs. prompt-cached inference throughput",
+        "xKey": "model",
+        "yKeys": ["Standard", "Cached"],
+        "data": [
+          { "model": "Haiku", "Standard": 148, "Cached": 210 },
+          { "model": "Sonnet", "Standard": 84, "Cached": 126 },
+          { "model": "Opus", "Standard": 42, "Cached": 68 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "6. Time to First Token (TTFT) Latency" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Percentile" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Haiku (ms)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Sonnet (ms)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "P50" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "280" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "510" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "P90" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "440" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "790" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "P99" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "690" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "1180" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-6",
+        "chartType": "line",
+        "title": "6. Time to First Token by Percentile (ms)",
+        "subtitle": "Streaming responsiveness across latency percentiles",
+        "xKey": "percentile",
+        "yKeys": ["HaikuMs", "SonnetMs"],
+        "data": [
+          { "percentile": "P50", "HaikuMs": 280, "SonnetMs": 510 },
+          { "percentile": "P90", "HaikuMs": 440, "SonnetMs": 790 },
+          { "percentile": "P99", "HaikuMs": 690, "SonnetMs": 1180 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "7. Agentic Tool Use & SWE-bench Resolution" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Iteration" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "SWE-bench (%)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Tool Accuracy (%)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "v1" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "33.4" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "81.0" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "v2" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "49.0" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "89.5" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "v3" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "62.3" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "94.1" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-7",
+        "chartType": "area",
+        "title": "7. Agentic Coding & Tool-Calling Progression (%)",
+        "subtitle": "Resolved GitHub issues and structured tool accuracy",
+        "xKey": "iteration",
+        "yKeys": ["SWEBench", "ToolAccuracy"],
+        "data": [
+          { "iteration": "v1", "SWEBench": 33.4, "ToolAccuracy": 81.0 },
+          { "iteration": "v2", "SWEBench": 49.0, "ToolAccuracy": 89.5 },
+          { "iteration": "v3", "SWEBench": 62.3, "ToolAccuracy": 94.1 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "8. Prompt Caching Cost Savings" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Workload" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Uncached ($/1M)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Cached ($/1M)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Codebase Q&A" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "3.00" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "0.35" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Doc Review" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "3.00" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "0.42" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Multi-Turn Agent" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "3.00" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "0.48" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-8",
+        "chartType": "bar",
+        "title": "8. Effective Input Cost with Prompt Caching ($ / 1M Tokens)",
+        "subtitle": "Cost reduction on repeated system & context prefixes",
+        "xKey": "workload",
+        "yKeys": ["Uncached", "Cached"],
+        "data": [
+          { "workload": "Codebase Q&A", "Uncached": 3.0, "Cached": 0.35 },
+          { "workload": "Doc Review", "Uncached": 3.0, "Cached": 0.42 },
+          { "workload": "Multi-Turn Agent", "Uncached": 3.0, "Cached": 0.48 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "9. Multimodal & Vision Evaluation" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Task" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "ChartQA (%)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "DocVQA (%)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Haiku" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "81.1" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "88.8" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Sonnet" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "90.8" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "95.2" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Opus" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "91.6" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "95.9" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-9",
+        "chartType": "bar",
+        "title": "9. Document & Chart Vision Accuracy (%)",
+        "subtitle": "ChartQA and DocVQA benchmark performance",
+        "xKey": "tier",
+        "yKeys": ["ChartQA", "DocVQA"],
+        "data": [
+          { "tier": "Haiku", "ChartQA": 81.1, "DocVQA": 88.8 },
+          { "tier": "Sonnet", "ChartQA": 90.8, "DocVQA": 95.2 },
+          { "tier": "Opus", "ChartQA": 91.6, "DocVQA": 95.9 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    },
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [{ "type": "text", "text": "10. Industry Vertical Adoption" }]
+    },
+    {
+      "type": "table",
+      "content": [
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Vertical" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Share (%)" }] }] },
+            { "type": "tableHeader", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "YoY Growth (%)" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Software & Dev" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "36" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "142" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Financial Services" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "24" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "118" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Healthcare & Bio" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "19" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "96" }] }] }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "content": [
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "Legal & Compliance" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "21" }] }] },
+            { "type": "tableCell", "content": [{ "type": "paragraph", "content": [{ "type": "text", "text": "104" }] }] }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tanstackChart",
+      "attrs": {
+        "id": "anthropic-chart-10",
+        "chartType": "line",
+        "title": "10. Enterprise Adoption Share & YoY Growth (%)",
+        "subtitle": "Production deployments across regulated and technical verticals",
+        "xKey": "vertical",
+        "yKeys": ["Share", "YoYGrowth"],
+        "data": [
+          { "vertical": "Software", "Share": 36, "YoYGrowth": 142 },
+          { "vertical": "Finance", "Share": 24, "YoYGrowth": 118 },
+          { "vertical": "Healthcare", "Share": 19, "YoYGrowth": 96 },
+          { "vertical": "Legal", "Share": 21, "YoYGrowth": 104 }
+        ],
+        "width": 680,
+        "height": 300
+      }
+    }
+  ]
+}
