@@ -1,0 +1,6 @@
+{
+  "name": "Crystal DocPad",
+  "description": "AI-assisted report editor with shared TanStack Charts and cryptographically signed PDF/DOCX export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

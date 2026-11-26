@@ -1,0 +1,16 @@
+{
+  "name": "@report-studio/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./charts": "./src/charts/index.ts",
+    "./types": "./src/types/document.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
